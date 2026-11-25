@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#191512">
+<title>小米澎程 N90 Max · 交付验车清单（104 项）</title>
+<script>
+  try{
+    var _raw = localStorage.getItem("n90max-delivery-check-v1");
+    var _th = _raw && JSON.parse(_raw).theme;
+    if(!_th) _th = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.dataset.theme = _th;
+  }catch(e){}
+</script>
+<style>
+  :root{
+    --bg:#f4f2ee; --card:#ffffff; --ink:#191512; --sub:#6f6860; --line:#e6e1d9;
+    --accent:#ff6a1f; --accent-soft:#fff2e9; --accent-ink:#8a4315;
+    --green:#0f7a52; --green-soft:#e9f7f0;
+    --red:#c9342a; --red-soft:#fdecea;
+    --amber:#946011; --amber-soft:#fbf2df;
+    --purple:#5646c4; --purple-soft:#efecfd;
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+    padding-bottom:env(safe-area-inset-bottom);
+    -webkit-tap-highlight-color:transparent;
+  }
+  button,input,textarea{font:inherit;color:inherit}
+  .wrap{max-width:840px;margin:0 auto;padding:0 14px 130px}
+
+  /* ---------- 顶部进度条 ---------- */
+  .topline{
+    position:sticky;top:0;z-index:40;background:var(--bg);
+    -webkit-backdrop-filter:saturate(1.4) blur(10px);
+    backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line);
+  }
+  .topline .inner{max-width:840px;margin:0 auto;padding:8px 14px 9px;display:flex;align-items:center;gap:10px}
+  .topline b{font-size:12.5px;font-weight:700;letter-spacing:.2px}
+  .topline span{font-size:11.5px;color:var(--sub);margin-left:auto}
+  .theme{flex:0 0 auto;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);
+    background:var(--card);color:var(--sub);display:grid;place-items:center;cursor:pointer;padding:0}
+  .theme svg{width:15px;height:15px}
+  .theme .sun{display:none}
+  html[data-theme="dark"] .theme .sun{display:block}
+  html[data-theme="dark"] .theme .moon{display:none}
+  .track{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#e3ddd3}
+  .track i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff8a3d,#ff5a0d);transition:width .25s}
+
+  /* ---------- 头图 ---------- */
+  .hero{
+    background:linear-gradient(165deg,#1c1814 0%,#2b241c 60%,#332a20 100%);
+    color:#fff;padding:26px 0 24px;margin-bottom:14px;
+    border-bottom-left-radius:26px;border-bottom-right-radius:26px;
+    position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-70px;top:-90px;width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,106,31,.28),transparent 65%);
+  }
+  .hero .inner{max-width:840px;margin:0 auto;padding:0 18px;position:relative}
+  .kicker{font-size:11px;letter-spacing:2.4px;color:#ffb98d;font-weight:700}
+  h1{font-size:23px;line-height:1.25;margin:8px 0 4px;font-weight:800;letter-spacing:.2px}
+  .hero .sub{color:#c9c0b5;font-size:12.5px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .meta i{
+    font-style:normal;font-size:11.5px;padding:4px 9px;border-radius:999px;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);color:#f3ece4;
+  }
+  .count{display:flex;align-items:baseline;gap:8px;margin-top:18px}
+  .count b{font-size:32px;font-weight:800;letter-spacing:-1px;color:#fff}
+  .count span{font-size:12px;color:#c9c0b5}
+  .count em{font-style:normal;font-size:11px;color:#ffb98d;border:1px solid rgba(255,185,141,.4);padding:2px 7px;border-radius:999px}
+
+  /* ---------- 通用卡片 ---------- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+  h2.sec{font-size:15px;margin:22px 0 10px;display:flex;align-items:center;gap:8px}
+  h2.sec::before{content:"";width:4px;height:15px;border-radius:2px;background:var(--accent)}
+  h2.sec small{font-weight:400;color:var(--sub);font-size:11.5px;margin-left:auto}
+
+  /* ---------- 六条原则 ---------- */
+  .rules{padding:4px 16px 12px}
+  .rules ol{margin:0;padding:0;list-style:none;counter-reset:r}
+  .rules li{counter-increment:r;position:relative;padding:7px 0 7px 26px;font-size:13px;color:#39332c;border-top:1px dashed var(--line)}
+  .rules li:first-child{border-top:0}
+  .rules li::before{
+    content:counter(r);position:absolute;left:0;top:7px;width:18px;height:18px;border-radius:50%;
+    background:var(--accent-soft);color:var(--accent-ink);font-size:11px;font-weight:700;display:grid;place-items:center;
+  }
+  .rules b{font-weight:700}
+  .warnbox{background:var(--red-soft);border:1px solid #f6cfca;border-radius:12px;padding:10px 12px;font-size:12.5px;color:#8e2a21;margin-top:10px}
+  .warnbox b{color:#7d1f17}
+
+  /* ---------- 流程 ---------- */
+  .flow{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .flow::-webkit-scrollbar{display:none}
+  .step{
+    flex:0 0 auto;min-width:104px;background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:8px 10px;text-decoration:none;color:inherit;display:block;
+  }
+  .step b{display:block;font-size:12.5px;font-weight:700}
+  .step span{font-size:10.5px;color:var(--sub)}
+  .step.on{border-color:#f3b48d;background:var(--accent-soft)}
+  .step.on b{color:var(--accent-ink)}
+
+  /* ---------- 现场重点 ---------- */
+  .keycard{
+    background:linear-gradient(180deg,#fff6ef,#fff 70%);border:1px solid #f2d6c2;
+    border-radius:16px;padding:13px 14px;margin-top:10px;
+  }
+  .keyhd{display:flex;align-items:baseline;gap:8px;margin-bottom:10px}
+  .keyhd b{font-size:14px}
+  .keyhd span{font-size:11.5px;color:var(--sub)}
+  .keygrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+  .keygrid button{
+    display:flex;align-items:center;justify-content:space-between;gap:6px;text-align:left;
+    font-size:12.2px;padding:8px 10px;border-radius:10px;border:1px solid #f0dccd;
+    background:#fff;color:#7a3c12;cursor:pointer;
+  }
+  .keygrid button::after{content:"→";opacity:.45}
+  .keygrid button:active{background:#fff2e9}
+  .lvkey{background:#ffe4d1;color:#b34c12;border:1px solid #f6c9aa}
+
+  /* ---------- 已知问题 ---------- */
+  details.known{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:0;overflow:hidden}
+  details.known>summary{
+    list-style:none;cursor:pointer;padding:13px 15px;font-weight:700;font-size:13.5px;
+    display:flex;align-items:center;gap:8px;
+  }
+  details.known>summary::-webkit-details-marker{display:none}
+  details.known>summary::after{content:"展开";margin-left:auto;font-size:11px;color:var(--sub);font-weight:400}
+  details.known[open]>summary::after{content:"收起"}
+  .known-list{padding:0 12px 12px;display:grid;gap:7px}
+  .krow{border:1px solid var(--line);border-radius:11px;padding:9px 10px;background:#fcfbf9}
+  .krow b{font-size:12.5px;display:block}
+  .krow p{margin:3px 0 6px;font-size:11.8px;color:var(--sub);line-height:1.5}
+  .krow button{
+    font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid #e0d8cc;background:#fff;
+    color:var(--accent-ink);cursor:pointer;
+  }
+
+  /* ---------- 工具栏 ---------- */
+  .toolbar{position:sticky;top:37px;z-index:29;background:var(--bg);padding:10px 0 8px;margin-top:6px}
+  .search{
+    display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+    border-radius:12px;padding:8px 11px;
+  }
+  .search input{border:0;outline:0;background:transparent;flex:1;font-size:13px;min-width:0}
+  .search svg{flex:0 0 auto;opacity:.45}
+  .chips{display:flex;gap:6px;overflow-x:auto;margin-top:8px;padding-bottom:2px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;font-size:11.5px;padding:5px 9px;border-radius:999px;border:1px solid var(--line);
+    background:#fff;color:#4d463e;cursor:pointer;white-space:nowrap;
+  }
+  .chip b{font-weight:700;margin-left:3px;opacity:.6}
+  .chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+  .chip.on b{opacity:.75}
+
+  /* ---------- 阶段 ---------- */
+  .stage{margin-top:18px;scroll-margin-top:146px}
+  .stage-hd{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+  .num{
+    flex:0 0 auto;width:28px;height:28px;border-radius:9px;background:var(--ink);color:#fff;
+    font-size:12.5px;font-weight:800;display:grid;place-items:center;margin-top:1px;
+  }
+  .stage-hd h3{margin:0;font-size:16px;font-weight:800;letter-spacing:.2px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .stage-hd .t{font-size:10.5px;font-weight:600;color:var(--accent-ink);background:var(--accent-soft);padding:1px 7px;border-radius:999px}
+  .stage-hd .cnt{font-size:11px;color:var(--sub);margin-left:auto;padding-top:3px;white-space:nowrap}
+  .legend{font-size:11.5px;color:var(--sub);margin:2px 2px 0;line-height:1.6}
+  .legend b{color:#8b8378;font-weight:700}
+  .legend span{display:block}
+  .tip{font-size:12px;color:var(--sub);margin:-2px 0 8px;padding-left:38px;line-height:1.5}
+
+  /* ---------- 检查项 ---------- */
+  .item{
+    background:var(--card);border:1px solid var(--line);border-radius:13px;
+    padding:11px 12px 9px;margin-bottom:8px;transition:background .15s,border-color .15s;
+  }
+  .item .row{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+  .chk{
+    flex:0 0 auto;width:21px;height:21px;border-radius:50%;border:2px solid #cfc7ba;
+    display:grid;place-items:center;margin-top:2px;font-size:11px;font-weight:800;color:#fff;
+  }
+  .item.key{border-color:#f0c8ab;background:linear-gradient(90deg,#fffcfa,#fff 55%)}
+  .item.done{border-color:#bfe3d2;background:var(--green-soft)}
+  .item.done .chk{background:var(--green);border-color:var(--green)}
+  .item.done .chk::after{content:"✓"}
+  .item.bad{border-color:#f1c0b9;background:var(--red-soft)}
+  .item.bad .chk{background:var(--red);border-color:var(--red)}
+  .item.bad .chk::after{content:"!"}
+  .tt{font-size:14px;font-weight:700;line-height:1.4}
+  .item.done .tt{color:#3f5c4d}
+  .item.bad .tt{color:#8e2a21}
+  .badges{display:flex;gap:4px;margin-left:auto;padding-left:6px;flex-wrap:wrap;justify-content:flex-end}
+  .badges span{font-size:10px;font-weight:700;padding:1px 6px;border-radius:999px;white-space:nowrap}
+  .lv0{background:var(--red);color:#fff}
+  .lv1{background:var(--amber-soft);color:var(--amber);border:1px solid #eeddba}
+  .lv2{background:#f0eee9;color:#7b746b}
+  .kbadge{background:var(--purple-soft);color:var(--purple);border:1px solid #ddd6fa}
+  .how{font-size:12.5px;color:#5c554c;margin:5px 0 0;line-height:1.55}
+  .how b{color:#8a8378;font-weight:600}
+  .risk{
+    font-size:12.2px;line-height:1.5;margin-top:6px;padding:5px 8px;border-radius:8px;
+    background:var(--accent-soft);color:var(--accent-ink);
+  }
+  .risk b{font-weight:800}
+  .item.bad .risk{background:#fbe0dc;color:#8e2a21}
+  .acts{display:flex;justify-content:flex-end;margin-top:6px}
+  .act{
+    font-size:11.5px;padding:3px 10px;border-radius:999px;border:1px solid #ded6ca;
+    background:#fff;color:#6f6860;cursor:pointer;
+  }
+  .item.bad .act{background:var(--red);border-color:var(--red);color:#fff}
+  .note{display:none;margin-top:8px}
+  .item.bad .note{display:block}
+  .note textarea{
+    width:100%;min-height:56px;resize:vertical;border:1px solid #eccbc6;border-radius:9px;
+    background:#fff;padding:8px 9px;font-size:12.5px;line-height:1.5;outline:none;
+  }
+  .note textarea:focus{border-color:var(--accent)}
+  .item.hide,.stage.hide{display:none}
+  .empty{text-align:center;color:var(--sub);font-size:12.5px;padding:26px 0}
+
+  /* ---------- 底部 ---------- */
+  .dock{
+    position:fixed;left:0;right:0;bottom:0;z-index:45;
+    background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    border-top:1px solid var(--line);padding:9px 14px calc(9px + env(safe-area-inset-bottom));
+  }
+  .dock .inner{max-width:840px;margin:0 auto;display:flex;align-items:center;gap:10px}
+  .dock .txt{font-size:11.5px;color:var(--sub);line-height:1.35}
+  .dock .txt b{display:block;font-size:13px;color:var(--ink)}
+  .dock button{
+    margin-left:auto;flex:0 0 auto;border:0;border-radius:11px;padding:10px 14px;
+    background:var(--ink);color:#fff;font-size:13px;font-weight:700;cursor:pointer;
+  }
+  .dock button.bad{background:var(--red)}
+
+  /* ---------- 弹层 ---------- */
+  .modal{
+    position:fixed;inset:0;z-index:60;background:rgba(25,21,18,.5);
+    display:none;align-items:flex-end;justify-content:center;padding:0;
+  }
+  .modal.on{display:flex}
+  .sheet{
+    width:100%;max-width:840px;max-height:92vh;background:#fff;border-radius:20px 20px 0 0;
+    padding:16px 16px calc(16px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:10px;
+  }
+  .sheet h3{margin:0;font-size:16px;display:flex;align-items:center;gap:8px}
+  .sheet h3 small{font-weight:400;font-size:11.5px;color:var(--sub);margin-left:auto}
+  .vinrow{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub)}
+  .vinrow input{
+    flex:1;min-width:0;border:1px solid var(--line);border-radius:9px;padding:7px 9px;font-size:12.5px;outline:none;
+  }
+  .vinrow input:focus{border-color:var(--accent)}
+  .sheet textarea{
+    flex:1;min-height:220px;max-height:52vh;resize:none;border:1px solid var(--line);border-radius:12px;
+    padding:11px;font-size:12px;line-height:1.6;background:#fbfaf8;outline:none;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  .sheet .btns{display:flex;gap:8px}
+  .sheet .btns button{
+    flex:1;border:0;border-radius:11px;padding:12px;font-size:13.5px;font-weight:700;cursor:pointer;
+  }
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-ghost{background:#f1eee9;color:#4d463e}
+  .toast{
+    position:fixed;left:50%;bottom:86px;transform:translate(-50%,10px);z-index:80;
+    background:rgba(25,21,18,.92);color:#fff;font-size:12.5px;padding:8px 14px;border-radius:999px;
+    opacity:0;pointer-events:none;transition:.2s;white-space:nowrap;
+  }
+  .toast.on{opacity:1;transform:translate(-50%,0)}
+
+
+  @media (min-width:760px){
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;overflow:visible}
+    .step{min-width:0}
+  }
+
+  @media print{
+    body{background:#fff;padding:0}
+    .topline,.dock,.toolbar,.flow,#resetBtn,.acts,.note,.modal,.toast,details.known{display:none!important}
+    .hero{background:#fff;color:#000;border:0;border-bottom:1px solid #ddd;border-radius:0}
+    .hero::after{display:none}
+    .kicker{color:#666}
+    .hero .sub,.meta i{color:#333;border-color:#ccc;background:#f5f5f5}
+    .count{display:none}
+    .wrap{padding:0;max-width:none}
+    .item,.stage-hd,.card{break-inside:avoid}
+    .item{border-color:#ddd}
+    .risk{background:#f7f7f7;color:#333}
+    .chk{border-color:#999}
+    .item.bad{background:#fff;border-color:#c00}
+    .item.bad .chk{background:#c00}
+  }
+
+  html{color-scheme:light}
+  html[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#151310;--card:#1e1b17;--ink:#f4efe8;--sub:#a29a8f;--line:#2f2a24;
+    --accent-soft:#33231a;--accent-ink:#ffb083;--green-soft:#15271f;--red-soft:#2c1715;
+    --amber-soft:#2b2114;--purple-soft:#221d33;
+    --amber:#e8b264;--purple:#b3a6ff;
+  }
+  html[data-theme="dark"] .topline{background:var(--bg)}
+  html[data-theme="dark"] .track{background:#2f2a24}
+  html[data-theme="dark"] .toolbar{background:var(--bg)}
+  html[data-theme="dark"] .search,html[data-theme="dark"] .chip,html[data-theme="dark"] .card,html[data-theme="dark"] .step,html[data-theme="dark"] details.known{background:var(--card)}
+  html[data-theme="dark"] .krow{background:#191612}
+  html[data-theme="dark"] .act{background:#241f1a;border-color:#3a332b;color:#b3aa9e}
+  html[data-theme="dark"] .note textarea{background:#191612;border-color:#4a2f2a}
+  html[data-theme="dark"] .dock{background:rgba(30,27,23,.95)}
+  html[data-theme="dark"] .sheet{background:#1e1b17}
+  html[data-theme="dark"] .sheet textarea{background:#171410;border-color:#2f2a24}
+  html[data-theme="dark"] .btn-ghost{background:#2a251f;color:#d8d0c5}
+  html[data-theme="dark"] .rules li{color:#d8d0c5}
+  html[data-theme="dark"] .kbadge{background:#241f33}
+  html[data-theme="dark"] .chip.on,html[data-theme="dark"] .num,html[data-theme="dark"] .dock button,html[data-theme="dark"] .btn-primary{background:#f2ece4;color:#191512}
+  html[data-theme="dark"] .keycard{background:linear-gradient(180deg,#241a13,#1e1b17 70%);border-color:#45301f}
+  html[data-theme="dark"] .item.key{border-color:#4a3323;background:linear-gradient(90deg,#211a15,#1e1b17 55%)}
+  html[data-theme="dark"] .keygrid button{background:#1e1b17;border-color:#45301f;color:#ffb083}
+  html[data-theme="dark"] .lvkey{background:#3a2418;color:#ffb083;border-color:#55331f}
+  html[data-theme="dark"] .chip.on b{opacity:.55}
+  html[data-theme="dark"] .item.done .tt{color:#c3e6d5}
+  html[data-theme="dark"] .item.bad .tt,html[data-theme="dark"] .item.bad .risk{color:#f2b7ae}
+  html[data-theme="dark"] .warnbox{background:#2c1715;border-color:#4a2a25;color:#f2b7ae}
+  html[data-theme="dark"] .warnbox b{color:#ffd0c8}
+  html[data-theme="dark"] .lv1{border-color:#4a3a20}
+  html[data-theme="dark"] .item.bad .risk{background:#3a1f1b}
+</style>
+</head>
+<body>
+
+<div class="topline">
+  <div class="inner">
+    <b>交付验车进度</b>
+    <span id="topTxt">0 / 104 · 异常 0</span>
+    <button class="theme" id="themeBtn" type="button" aria-label="切换浅色 / 深色外观" title="切换浅色 / 深色">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5 5l1.4 1.4M17.6 17.6L19 19M19 5l-1.4 1.4M6.4 17.6L5 19"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+    </button>
+  </div>
+  <div class="track"><i id="topBar"></i></div>
+</div>
+
+<header class="hero">
+  <div class="inner">
+    <div class="kicker">XIAOMI SKYNOMAD · DELIVERY CHECK</div>
+    <h1>小米澎程 N90 Max<br>交付验车清单</h1>
+    <div class="sub">7 座 · 全选装 · 火山灰 / 摩卡棕 · 21″ 光辐轮毂</div>
+    <div class="meta">
+      <i id="dateChip">2026-11-29 周日</i>
+      <i>104 项 · 8 个阶段</i>
+      <i>含 12 条已曝光问题</i>
+    </div>
+    <div class="count">
+      <b id="daysLeft">4</b>
+      <span>天后去交付中心</span>
+      <em id="leftNote">建议 9:00 到店</em>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 六条原则 -->
+  <section class="card rules">
+    <ol>
+      <li><b>两人分工，别一个人硬扛。</b>一人看外观缝隙，一人坐进车里点功能，最后交换复核。</li>
+      <li><b>先验车，再签交付单。</b>签字前车还不是你的，签字后所有问题都变成“售后”。</li>
+      <li><b>漆面要侧光看。</b>手电或手机斜 45° 贴着漆面走，橘皮、补漆、细划痕才会现形。</li>
+      <li><b>玻璃和轮胎看日期。</b>晚于整车下线就是后换的，一定要问清楚。</li>
+      <li><b>问题四步走：</b>拍照录像 → 喊交付顾问确认 → 交付单上注明并双方签字 → 问清当场修还是补偿/换车。</li>
+      <li><b>提车当天别贴膜。</b>先开一周，让隐藏问题暴露，再谈贴膜车衣。</li>
+    </ol>
+    <div class="warnbox"><b>可以不签的三条红线：</b>漆面大面积瑕疵 / 关键功能当场用不了 / 车证 VIN 不符。此时你有权要求换车或书面处理方案，不要被“先签字后处理”带走。</div>
+  </section>
+
+  <!-- 流程 -->
+  <h2 class="sec">现场流程 <small>合计约 3.5 小时</small></h2>
+  <div class="flow" id="flow"></div>
+
+  <!-- 现场重点 -->
+  <section class="keycard">
+    <div class="keyhd"><b>现场重点</b><span>这 8 个动作最容易漏，出问题也最贵</span></div>
+    <div class="keygrid">
+      <button data-jump="config">全选装逐项对</button>
+      <button data-jump="glass">玻璃/轮胎日期</button>
+      <button data-jump="wheel">21 寸轮毂</button>
+      <button data-jump="paint">漆面侧光看</button>
+      <button data-jump="undercarriage">上举升机</button>
+      <button data-jump="island">中岛异响</button>
+      <button data-jump="low-freq">30 分钟压耳</button>
+      <button data-jump="handover">写进交付单</button>
+    </div>
+  </section>
+
+  <!-- 已知问题 -->
+  <h2 class="sec">网上已曝光的问题 <small>重点看这 12 条</small></h2>
+  <details class="known">
+    <summary>提车前先知道：中岛异响、低频压耳、增程器…</summary>
+    <div class="known-list" id="knownList"></div>
+  </details>
+
+  <!-- 工具栏 -->
+  <div class="toolbar">
+    <div class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="搜检查项，如：漆面、玻璃、异响、VIN">
+    </div>
+    <div class="chips" id="chips">
+      <button class="chip on" data-f="all">全部 <b id="cAll">104</b></button>
+      <button class="chip" data-f="todo">待检 <b id="cTodo">104</b></button>
+      <button class="chip" data-f="p0">P0 <b id="cP0">0</b></button>
+      <button class="chip" data-f="bad">异常 <b id="cBad">0</b></button>
+      <button class="chip" data-f="known">已知 <b id="cKnown">0</b></button>
+    </div>
+  </div>
+
+  <p class="legend"><span><b>P0</b> 直接影响钱和证 · <b>P1</b> 重要 · <b>P2</b> 一般</span><span>点卡片＝已检查，点“标记异常”＝有问题</span></p>
+
+  <div id="stages"></div>
+  <button id="resetBtn" style="display:block;margin:26px auto 0;background:none;border:0;color:#a29a8f;font-size:12px;text-decoration:underline;cursor:pointer">清空所有勾选与备注</button>
+  <div class="empty hide" id="empty">没有匹配的检查项，换个关键词试试。</div>
+</div>
+
+<div class="dock">
+  <div class="inner">
+    <div class="txt"><b id="dockCount">0 / 104 已检</b><span id="dockSub">还有 104 项没看</span></div>
+    <button id="openSheet">生成问题清单</button>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="sheet">
+    <h3>问题清单 <small>可直接念给交付顾问 / 粘进交付单</small></h3>
+    <div class="vinrow">
+      <label for="vin">VIN 后 6 位</label>
+      <input id="vin" maxlength="17" placeholder="例如 7F2K9A">
+    </div>
+    <textarea id="out" readonly></textarea>
+    <div class="btns">
+      <button class="btn-ghost" id="closeSheet">关闭</button>
+      <button class="btn-primary" id="copyBtn">复制清单</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">已复制</div>
+
+<script>
+/* ============================================================
+   数据：8 个阶段 / 104 项
+   lv: 0=必查(会直接影响钱和证) 1=重要 2=一般
+   k: true 表示对应网上已曝光的问题
+   ============================================================ */
+const DATA = [
+  { n:"到店签到", time:"15 分钟", tip:"先要文件，再看车。顺带确认：带了手电、两个人分工、订单配置截图在手机里。", items:[
+    { t:"先要 PDI 检测单", how:"让交付顾问出示 PDI 报告，确认已做并双方签字，拍照留档。", risk:"PDI 是不是真做了、有没有检测记录。", lv:0 },
+    { t:"VIN 五处一致", how:"前挡左下角、B 柱铭牌、合格证、发票、小米 App，五处 VIN 必须完全相同。", risk:"车证是否一致、有没有提错车。", lv:0, id:"vin" },
+    { t:"看整车生产日期", how:"B 柱铭牌制造日期，距提车不超过 3 个月；超过要求书面说明。", risk:"库存车、展车、试驾车。", lv:0 },
+    { t:"配置逐项打勾", id:"config", key:true, how:"N90 Max 7 座 / 火山灰 / 摩卡棕 / 21″ 光辐轮毂+悬浮车标 / 豪华套装（电动门、电踏、麂皮顶、21.4″ 后排屏、9L 冰箱、主驾防眩目）/ 旋转座椅、桌板。", risk:"全选装最容易漏装一两项，事后加装既贵又要拆车。", lv:0 },
+    { t:"轮胎规格对不对", how:"前 255 / 后 265、21 寸、普利司通静音胎，四条同品牌同花纹同规格。", risk:"混装胎、非静音胎、前后装反。", lv:1, id:"tire-spec" },
+    { t:"当面问运输记录", how:"直接问：运输中有没有磕碰、有没有补过漆，要求写进交接单。", risk:"有没有运损修复、补漆记录。", lv:0 },
+    { t:"随车物品清点", how:"2 把钥匙+卡片钥匙、三角牌、反光背心、补胎工具、充电线、随车工具包。", risk:"随车件少没少、补领要等多久。", lv:1 },
+    { t:"看里程数", how:"仪表里程一般小于 50km（运输+PDI），超过 100km 要问清原因。", risk:"试驾车、展车、被人开出去过。", lv:1 }
+  ]},
+
+  { n:"外观与车身", time:"40 分钟", tip:"绕车两圈：第一圈侧光看漆，第二圈摸缝隙、看日期。", items:[
+    { t:"漆面侧光走一圈", how:"手电斜 45° 贴漆面，分 8 块看：前杠、机盖、左右翼子板、四门、后杠、尾门、车顶。", risk:"橘皮、流挂、色差、补漆痕迹、太阳纹。", lv:0, id:"paint", key:true },
+    { t:"前杠下沿和拖车钩盖板", how:"蹲下看前保险杠下沿、下唇、拖车钩盖板。", risk:"上下板车最容易磕的地方，多数人只看上面。", lv:1 },
+    { t:"车顶前缘与雷达罩", how:"站台阶或退远处看车顶前缘、车顶激光雷达罩、后向固态雷达。", risk:"运输磕碰、雷达罩裂纹、密封不严。", lv:1 },
+    { t:"门边与门把手凹槽", how:"四门边缘、门把手凹槽、门碗内侧逐一摸。", risk:"开门磕碰、掉漆、指甲划痕。", lv:1 },
+    { t:"后视镜", how:"壳体、镜片、折叠开合、转向灯。", risk:"镜片划痕、壳体色差、折叠异响。", lv:2 },
+    { t:"缝隙均匀度", how:"手指顺着机盖两侧、四门与翼子板、尾门左右缝隙摸一遍。", risk:"一边宽一边窄＝钣金或装配问题。", lv:1 },
+    { t:"前后灯组", how:"灯罩内有无水汽、裂纹、异物；左右灯新旧是否一致。", risk:"灯罩进水、返修灯、色差。", lv:1 },
+    { t:"玻璃生产日期", how:"每块玻璃角落点阵：数字前用 7 减点数，数字后用 13 减，得月份。四门+前后挡+天幕逐块，必须早于整车下线。", risk:"玻璃被换过（运输破损或事故）。", lv:0, id:"glass", key:true },
+    { t:"玻璃品牌是否一致", how:"前后挡、四门、天幕的品牌标识对比。", risk:"混用非原厂玻璃。", lv:2 },
+    { t:"天幕与遮阳帘", how:"天幕玻璃裂纹、遮阳帘全程开合。", risk:"裂纹、遮阳帘卡滞脱轨。", lv:1 },
+    { t:"轮胎生产日期", how:"胎侧 DOT 后四位＝周数+年份，四条周期接近且不晚于整车下线。", risk:"库存胎、换胎、翻新胎。", lv:0, id:"tire-date" },
+    { t:"21 寸轮毂逐条摸", how:"轮辐逐条摸，轮辋外缘重点看，四个都看。", risk:"运输刮伤——21 寸扁平比低，最易中招。", lv:0, id:"wheel", key:true, k:true },
+    { t:"悬浮车标", how:"21″ 光辐轮毂的悬浮车标是否居中、转动顺不顺、有没有松动。", risk:"车标歪、异响、脱落。", lv:2 },
+    { t:"四轮胎压", how:"仪表四轮胎压一致，按门框标签值（约 2.6–2.9bar）。", risk:"胎压异常、慢漏气。", lv:1 },
+    { t:"轮拱内衬与护板卡扣", how:"轮拱内衬、挡泥板、底盘护板卡扣是否齐全、有无松动。", risk:"卡扣缺失、内衬异响。", lv:2 },
+    { t:"充电口盖与针脚", how:"充电口盖开合、密封圈、内部针脚有无氧化变形。", risk:"盖板不齐、密封圈变形、针脚氧化。", lv:0, id:"charge-port" },
+    { t:"雨刮与风挡下饰板", how:"雨刮胶条、雨刮臂、前风挡下饰板。", risk:"胶条老化、饰板翘起。", lv:2 },
+    { t:"车门开合", how:"四门+尾门开关，听铰链、看限位、关到底是否齐平。", risk:"铰链异响、门下垂、关不严。", lv:1 },
+    { t:"电动门六种开法", how:"豪华套装：车外按钮、车内按钮、语音、钥匙、屏幕、踩刹车关门；手放门边测防夹。", risk:"单侧不工作、防夹失效、开关异响。", lv:0, id:"edoor" },
+    { t:"电动迎宾踏板", how:"开门伸出、关门收回，踩上去晃一晃，听电机声。", risk:"不伸不收、异响、松动。", lv:1, id:"estep" },
+    { t:"尾门", how:"电动开合、脚踢感应、高度记忆、防夹。", risk:"关不严、防夹失效、脚踢不灵。", lv:1 },
+    { t:"车漆颜色核对", how:"火山灰在阳光下偏青，和订单色卡对比；同车不同板面看色差。", risk:"错色、后补漆色差。", lv:1 }
+  ]},
+
+  { n:"座舱与内饰", time:"40 分钟", tip:"这一节最花时间，也让交付顾问陪着你一起试——他按，你看。", items:[
+    { t:"内饰颜色与材质一致性", how:"摩卡棕在门板、座椅、中控、扶手上是否同色同料。", risk:"拼色错、局部色差。", lv:1 },
+    { t:"麂皮顶棚", how:"豪华套装麂皮顶棚看污渍、起球、脱胶、褶皱，边角是否服帖。", risk:"顶棚脏污、脱胶、异响。", lv:1 },
+    { t:"7 张座椅的缝线", how:"坐垫、靠背、头枕、缝线、打孔逐一摸。", risk:"跳线、褶皱、塌陷、打孔不均。", lv:1 },
+    { t:"座椅电动全行程", how:"每张座椅前后/靠背/腿托/头枕走一遍，听电机。", risk:"卡滞、异响、限位失效。", lv:1 },
+    { t:"旋转座椅", how:"P 挡下把一排旋转 180°，看是否刮 B 柱/中岛，锁止是否到位。", risk:"旋转卡滞、锁止不到位、异响。", lv:1, id:"swivel" },
+    { t:"零重力座椅", how:"一键零重力全程走完再复位，二排每张都试。", risk:"零重力失效、复位不到位、异响。", lv:1, id:"zero-g" },
+    { t:"六条长滑轨", how:"二三排全程推拉，看有无异物、变形；锁止后用力晃。", risk:"滑轨变形、锁止失效——后期异响的根源。", lv:0, id:"rail", k:true },
+    { t:"滑动中岛", how:"中岛从一排滑到二排全程，锁止、杯托、无线充、桌板接口。", risk:"滑动卡滞、锁止松、接口不通电。", lv:1 },
+    { t:"中岛异响专项", how:"清空杯架，怠速时手掌压住中岛感受震动；再找一段烂路 20–40km/h 复现。", risk:"中岛共振、“嗒嗒”异响，网上反馈最多的一条。", lv:0, id:"island", key:true, k:true },
+    { t:"9L 冰箱", how:"开机 5 分钟摸内壁是否变凉，-6~15℃ / 35~50℃ 切换，门吸合。", risk:"不制冷、异响、门关不严；另注意电量低于 20% 会被系统关闭。", lv:1, id:"fridge", k:true },
+    { t:"21.4″ 后排屏", how:"升降、角度、画面、遥控、声音、儿童内容都试。", risk:"坏点、升降卡滞；注意原厂屏不支持触摸、没有 HDMI。", lv:1, id:"rear-screen", k:true },
+    { t:"16.1″ 中控屏", how:"3K 屏坏点、漏光、四角触控、反光。", risk:"坏点、触控失灵。", lv:1 },
+    { t:"8.88″ 仪表", how:"显示、亮度、页面切换。", risk:"显示异常、亮度不均。", lv:2 },
+    { t:"HUD 抬头显示", how:"亮度、高度、清晰度、有无重影。", risk:"模糊、重影、投影偏移。", lv:1, id:"hud" },
+    { t:"25 扬声器音响", how:"前后左右声道、最大音量破音、低音下潜。", risk:"单只不响、破音、共振。", lv:1 },
+    { t:"三区空调", how:"三区独立调温、制冷制热、风量、出风方向、后排控制。", risk:"单区不制冷、异味、异响。", lv:1 },
+    { t:"方向盘", how:"加热、按键、四向调节、喇叭。", risk:"按键失灵、加热不热、调节卡。", lv:2 },
+    { t:"256 色氛围灯", how:"全色切换，门板/脚窝/顶棚灯带逐段看。", risk:"灯带断点、色差、不亮。", lv:2 },
+    { t:"遮阳帘", how:"天幕遮阳帘、二三排侧窗隐私帘全程开合。", risk:"卡滞、脱轨。", lv:1 },
+    { t:"7 条安全带", how:"抽拉、锁止、卡扣；三排座椅前移后再试能否够到。", risk:"卡扣失效；三排安全带位置偏高，是已知痛点。", lv:0, id:"seatbelt-3rd", k:true },
+    { t:"车内异味", how:"关窗静置 10 分钟再闻：胶味、塑料味、霉味。", risk:"泡水霉味、劣质胶、内饰污染。", lv:1 },
+    { t:"顶棚细节", how:"拾音口、麦克风、内后视镜、遮阳板化妆镜。", risk:"拾音口冲孔毛刺（已知观感问题）、镜子裂。", lv:2, id:"mic-hole", k:true },
+    { t:"第三排", how:"进出、腿部空间、靠背调节、放倒、儿童座椅接口。", risk:"卡扣坏、放不平、接口缺。", lv:1 },
+    { t:"后备厢", how:"1831L 放倒、690mm 门槛、12V/220V、挂钩、盖板。", risk:"盖板异响、电源无电。", lv:1 }
+  ]},
+
+  { n:"三电与底盘", time:"20 分钟", tip:"一定要上举升机。不上架，底盘这一节等于没看。", items:[
+    { t:"前舱油液", how:"增程器机油尺、冷却液、玻璃水、12V 电瓶接线柱。", risk:"油液不足、接线松、渗漏。", lv:1 },
+    { t:"增程器冷启动", how:"P 挡强制启动，听怠速与高转速，手扶方向盘感受抖动。", risk:"金属敲击声、异常抖动；冷启动抖一下属正常。", lv:1, id:"erev", k:true },
+    { t:"上举升机看底盘", how:"电池包外壳、护板、悬架、半轴、排气、油管。", risk:"托底划痕、护板缺失、渗漏。", lv:0, id:"undercarriage", key:true },
+    { t:"空气悬架升降", how:"三档升降，看左右高度一致、升降无异响、锁车后不塌。", risk:"单侧不升、异响、漏气。", lv:0, id:"air-susp" },
+    { t:"CDC 阻尼切换", how:"舒适/运动切换，过坎感受阻尼变化。", risk:"切换无感＝故障。", lv:1 },
+    { t:"刹车与手刹", how:"踏板行程、脚感、电子手刹、Auto Hold。", risk:"踏板虚位、手刹失效。", lv:0 },
+    { t:"充电口实测", how:"慢充+快充各插一次，看枪锁、功率、App 显示。", risk:"枪锁故障、针脚问题、充电中断。", lv:0 },
+    { t:"对外放电", how:"车内 220V 插个小电器，车外 6.6kW 放电试一次。", risk:"放电失败、功率不足。", lv:1 },
+    { t:"电池与续航显示", how:"当前 SOC、表显续航与 CLTC 464km 的比例、有无故障灯。", risk:"电池异常、SOC 跳变。", lv:1 },
+    { t:"三把钥匙与手机钥匙", how:"两把钥匙+卡片+手机蓝牙/NFC：解闭锁、启动、离车落锁。", risk:"钥匙失灵、落锁失败。", lv:1 }
+  ]},
+
+  { n:"车机与智驾", time:"25 分钟", tip:"让顾问把账号、流量、OTA 当场弄好，别带回家自己折腾。", items:[
+    { t:"车机流畅度", how:"连续操作 10 分钟：导航、音乐、视频、设置来回切。", risk:"卡顿、死机、黑屏。", lv:1 },
+    { t:"账号绑定", how:"登录小米账号、绑定车主、开通车联网。", risk:"绑定失败、流量未激活。", lv:0 },
+    { t:"小爱同学", how:"开窗、空调、座椅、导航、场景模式逐条说。", risk:"识别差、执行失败。", lv:1 },
+    { t:"OTA 版本", how:"查版本、点检查更新，确认是最新。", risk:"出厂旧版本、OTA 失败。", lv:1 },
+    { t:"车联网", how:"导航实时路况、在线音乐、应用商店。", risk:"车联网无信号。", lv:1 },
+    { t:"360 影像", how:"全景、透明底盘、倒车影像、侧摄像头。", risk:"畸变、黑屏、拼接错位。", lv:1 },
+    { t:"自动泊车", how:"找一个车位试自动泊车/代客泊车。", risk:"识别失败、泊入失败。", lv:2 },
+    { t:"辅助驾驶与啸叫", how:"快速路试 ACC+LCC，80–110km/h 定速巡航。", risk:"画龙、退出；个别车此区间有电机啸叫。", lv:1, id:"adas", k:true },
+    { t:"激光雷达与摄像头", how:"前后激光雷达、摄像头外观清洁、无遮挡，仪表无故障灯。", risk:"雷达故障、遮挡报警。", lv:0 },
+    { t:"HUD 与导航联动", how:"导航投 HUD、限速识别显示。", risk:"不显示、识别错。", lv:2 },
+    { t:"双 50W 无线充", how:"两台手机同时充，看发热、断充。", risk:"断充、过热。", lv:2 },
+    { t:"记录仪与 U 盘", how:"插 U 盘识别、录像、回放。", risk:"不识别 U 盘。", lv:2 },
+    { t:"记忆功能", how:"座椅记忆、后视镜记忆、账号同步。", risk:"记忆失效。", lv:2 }
+  ]},
+
+  { n:"动态试驾", time:"40 分钟", tip:"这一节别省。网上反馈最多的问题，全是开起来才有的。", items:[
+    { t:"低频压耳 30 分钟", how:"要求城市路 20–70km/h 连续开 30 分钟，不开音乐、不开窗。", risk:"空腔共振、耳朵闷胀——已知高发，声敏感者必测。", lv:0, id:"low-freq", key:true, k:true },
+    { t:"烂路异响", how:"20–40km/h 过连续减速带和粗糙沥青，关音响听。", risk:"中岛“嗒嗒”声、门板/顶棚异响。", lv:0, id:"rattle", k:true },
+    { t:"增程器介入", how:"电量低于 25% 或强制启动，60–100km/h 巡航听噪音与振动。", risk:"增程器异响、共振、介入突兀。", lv:0 },
+    { t:"高速风噪胎噪", how:"80–110km/h 定速，听风噪、胎噪、啸叫。", risk:"电机啸叫、胎噪偏大。", lv:1 },
+    { t:"急加速与爬坡", how:"全油门起步、找个坡爬一次，感受前轮打滑与动力。", risk:"偏前驱特性，急加速前轮易打滑（设计特性，记录即可）。", lv:1 },
+    { t:"刹车动态", how:"60km/h 全力刹停，连续三次，看跑偏、异响、踏板。", risk:"刹车跑偏、异响、热衰减。", lv:0 },
+    { t:"转向", how:"掉头（转弯半径 5.95m）、低速揉库。", risk:"转向异响、跑偏、回正差。", lv:1 },
+    { t:"底盘动态", how:"舒适/运动过坎对比，感受余震。", risk:"底盘异响、后悬触底。", lv:1 },
+    { t:"满载过坎", how:"坐满人或在后备厢放重物再过坎。", risk:"后悬行程偏短，满载易触底，是结构特性。", lv:1, id:"rear-susp", k:true },
+    { t:"高速 NOA", how:"高速 NOA、自动变道、匝道。", risk:"退出、画龙、识别失败。", lv:2 },
+    { t:"充电实测", how:"交付中心快充桩充 10 分钟，看功率曲线。", risk:"充电功率低、跳枪。", lv:1 },
+    { t:"空调动态", how:"行驶中三区制冷、前挡除雾。", risk:"制冷差、除雾慢。", lv:1 }
+  ]},
+
+  { n:"手续与签收", time:"25 分钟", tip:"所有口头承诺，在这一节全部落到纸上。", items:[
+    { t:"四证一票", how:"发票（价税合计=合同价，含选装）、合格证、登记证书、三包凭证、说明书、保养手册。", risk:"发票金额、选装是否计入、证件齐不齐。", lv:0 },
+    { t:"保险生效时间", how:"交强险+商业险，确认提车当天已生效。", risk:"保险是否当天生效、险种对不对。", lv:0 },
+    { t:"临牌", how:"号码、有效期、行驶区域（注意跨区限制）。", risk:"临牌有效期和限行区域。", lv:0 },
+    { t:"购置税", how:"新能源免税证明/完税凭证。", risk:"免税手续有没有办完。", lv:0 },
+    { t:"问题写进交付单", how:"逐条写：位置、大小、照片编号、处理方案、时限，双方签字。", risk:"问题有没有落到纸面、有没有双方签字。", lv:0, id:"handover", key:true },
+    { t:"赠品当场清点", how:"充电桩、流量、脚垫、膜、积分逐项写进交付单。", risk:"赠品数量、品牌和交付时间。", lv:1 },
+    { t:"拍照留证", how:"里程表、VIN、四角 45°、问题特写、交付单，全部原图留存。", risk:"证据全不全（里程、VIN、问题特写）。", lv:1 },
+    { t:"App 绑定与进群", how:"绑定车辆、开通服务管家群、留交付顾问电话。", risk:"账号绑定和服务群有没有开通。", lv:1 },
+    { t:"守住红线", how:"漆面大面积瑕疵、功能当场用不了、车证不符——有权不签字。", risk:"哪些问题属于可以不签的范畴。", lv:0 }
+  ]},
+
+  { n:"离店之后", time:"7 天内", tip:"车开回家才是长期检验的开始，这一周多留意。", items:[
+    { t:"24 小时内洗车", how:"先别贴膜，洗一次车再看漆面。", risk:"隐藏划痕、补漆遇水显形。", lv:1 },
+    { t:"7 天内跑一次高速和快充", how:"各一次，记录异常现象和时间。", risk:"高速异响、充电问题暴露。", lv:1 },
+    { t:"确认保养与质保政策", how:"增程器 3 年/3 万公里保养、三电 8 年/16 万公里质保。", risk:"保养周期、质保范围是否与承诺一致。", lv:2 },
+    { t:"贴膜车衣前先索赔", how:"确认漆面无问题再施工。", risk:"漆面问题有没有在施工前解决。", lv:1 },
+    { t:"服务管家群报备", how:"把中岛异响、低频压耳等问题报备，留下时间戳。", risk:"问题无备案，后期难认定。", lv:1 },
+    { t:"30 天复查", how:"轮胎偏磨、四轮定位、异响是否复现。", risk:"定位偏差、吃胎。", lv:2 }
+  ]}
+];
+
+const FLOW = [
+  ["到店签到","15 分钟"],["外观车身","40 分钟"],["座舱内饰","40 分钟"],["三电底盘","20 分钟"],
+  ["车机智驾","25 分钟"],["动态试驾","40 分钟"],["手续签收","25 分钟"],["离店之后","7 天内"]
+];
+
+const KNOWN = [
+  { id:"island", name:"中岛异响 / 共振", desc:"可滑动中岛在增程器启动、高速或烂路时出现振动和“嗒嗒”声，多位车主与博主实测提到；先排除杯架杂物。" },
+  { id:"low-freq", name:"低频压耳", desc:"20–70km/h 空腔共振，像耳边敲鼓，开 20–30 分钟耳膜发闷；个体差异大，必须连续试 30 分钟。" },
+  { id:"rattle", name:"高速“嗒嗒”异响", desc:"高速行驶时中岛/内饰出现规律敲击声，有车主进店检查未查出，回程复现。" },
+  { id:"erev", name:"增程器启动噪音/抖动", desc:"冷启动介入会抖一下，属增程车常态；高转速金属敲击声才需要报修。" },
+  { id:"adas", name:"80–110km/h 电机啸叫", desc:"定速巡航在特定油门开度出现耳鸣样啸叫，个案，试驾时定速复现最有效。" },
+  { id:"rail", name:"长滑轨进灰/卡滞", desc:"六条滑轨带供电，沙土、零食渣、饮料渗入后可能卡顿异响，交付时全行程推拉一遍。" },
+  { id:"wheel", name:"21 寸轮毂易刮", desc:"扁平比低、轮辋外凸，运输和靠边停车最容易伤到轮辋边缘。" },
+  { id:"fridge", name:"低电量冰箱被关闭", desc:"电量低于 20% 时系统会自动关冰箱，属当前设计限制，不是故障。" },
+  { id:"seatbelt-3rd", name:"三排安全带不好够", desc:"三排座椅前移后，安全带固定在 D 柱位置偏高，伸手不便，属已知体验问题。" },
+  { id:"rear-screen", name:"后排屏不支持触摸", desc:"21.4 寸原厂屏不支持触摸、无 HDMI，只能用遥控/语音，选装前先确认能接受。" },
+  { id:"rear-susp", name:"后悬行程偏短", desc:"为纯平地板压缩了后悬行程，满载过减速带容易触底、第三排颠。" },
+  { id:"mic-hole", name:"顶棚拾音口冲孔", desc:"顶棚麦克风开孔直接冲孔、无装饰盖，观感粗糙，检查有无毛刺。" }
+];
+
+/* ============================================================
+   状态
+   ============================================================ */
+const KEY = "n90max-delivery-check-v1";
+let store = { state:{}, notes:{}, vin:"", theme:"" };
+try { const raw = localStorage.getItem(KEY); if (raw) Object.assign(store, JSON.parse(raw)); } catch(e){}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch(e){} };
+
+const ALL = [];
+let idx = 0;
+DATA.forEach((st, si) => {
+  st.idx = si;
+  st.items.forEach((it, ii) => {
+    idx++;
+    it.no = idx;
+    it.id = it.id || ("s" + si + "i" + ii);
+    it.stage = st;
+    ALL.push(it);
+  });
+});
+
+/* ============================================================
+   渲染
+   ============================================================ */
+const $ = s => document.querySelector(s);
+
+/* ---------- 主题 ---------- */
+const themeBtn = document.getElementById("themeBtn");
+function setTheme(t, persist){
+  document.documentElement.dataset.theme = t;
+  if (persist){ store.theme = t; save(); }
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute("content", t === "dark" ? "#151310" : "#191512");
+  themeBtn.setAttribute("aria-label", t === "dark" ? "切换到浅色外观" : "切换到深色外观");
+}
+setTheme(document.documentElement.dataset.theme || "light", false);
+themeBtn.addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  setTheme(next, true);
+});
+
+function badge(it){
+  let h = "";
+  if (it.key) h += '<span class="lvkey">重点</span>';
+  if (it.lv === 0) h += '<span class="lv0">P0</span>';
+  if (it.lv === 1) h += '<span class="lv1">P1</span>';
+  if (it.lv === 2) h += '<span class="lv2">P2</span>';
+  if (it.k) h += '<span class="kbadge">已知</span>';
+  return h;
+}
+
+function render(){
+  $("#flow").innerHTML = FLOW.map(([n,t],i)=>
+    `<a class="step" href="#stage-${i}"><b>${i+1}. ${n}</b><span>${t}</span></a>`).join("");
+
+  $("#knownList").innerHTML = KNOWN.map(k=>
+    `<div class="krow"><b>${k.name}</b><p>${k.desc}</p>
+     <button data-jump="${k.id}">跳到对应检查项 →</button></div>`).join("");
+
+  $("#stages").innerHTML = DATA.map((st, si) => {
+    const items = st.items.map((it, ii) => {
+      const n = it.no;
+      return `<article class="item${it.key ? " key" : ""}" data-id="${it.id}">
+        <div class="row">
+          <div class="chk" aria-hidden="true"></div>
+          <div style="min-width:0;flex:1">
+            <div class="tt">${n}. ${it.t}</div>
+          </div>
+          <div class="badges">${badge(it)}</div>
+        </div>
+        <p class="how"><b>怎么查：</b>${it.how}</p>
+        <div class="risk"><b>能查出：</b>${it.risk}</div>
+        <div class="acts"><button class="act" type="button">标记异常</button></div>
+        <div class="note"><textarea placeholder="写清楚：位置 / 大小 / 现象，例如「右前门边缘 2mm 掉漆，已拍照 3 张」"></textarea></div>
+      </article>`;
+    }).join("");
+
+    return `<section class="stage" id="stage-${si}" data-stage="${si}">
+      <div class="stage-hd">
+        <div class="num">${si+1}</div>
+        <h3>${st.n} <span class="t">${st.time}</span></h3>
+        <div class="cnt" data-cnt="${si}">0/${st.items.length}</div>
+      </div>
+      <div class="tip">${st.tip}</div>
+      ${items}
+    </section>`;
+  }).join("");
+
+  // 回填状态
+  ALL.forEach(it => {
+    const el = document.querySelector('.item[data-id="'+it.id+'"]');
+    if (!el) return;
+    const s = store.state[it.id] || 0;
+    el.classList.toggle("done", s === 1);
+    el.classList.toggle("bad", s === 2);
+    if (store.notes[it.id]) el.querySelector("textarea").value = store.notes[it.id];
+  });
+  refresh();
+}
+
+function counts(){
+  let pass=0, bad=0;
+  ALL.forEach(it => {
+    const s = store.state[it.id] || 0;
+    if (s === 1) pass++;
+    if (s === 2) bad++;
+  });
+  return { pass, bad, done: pass + bad, total: ALL.length };
+}
+
+function refresh(){
+  const c = counts();
+  $("#topTxt").textContent = c.done + " / " + c.total + " · 异常 " + c.bad;
+  $("#topBar").style.width = (c.done / c.total * 100) + "%";
+  $("#dockCount").textContent = c.done + " / " + c.total + " 已检";
+  $("#dockSub").textContent = c.bad
+    ? "发现 " + c.bad + " 项异常，记得写进交付单"
+    : (c.done === c.total ? "全部检查完毕，可以签字了" : "还有 " + (c.total - c.done) + " 项没看");
+  $("#cAll").textContent = c.total;
+  $("#cTodo").textContent = c.total - c.done;
+  $("#cP0").textContent = ALL.filter(i=>i.lv===0).length;
+  $("#cBad").textContent = c.bad;
+  $("#cKnown").textContent = ALL.filter(i=>i.k).length;
+
+  const openBtn = $("#openSheet");
+  openBtn.textContent = c.bad ? "生成问题清单 (" + c.bad + ")" : "生成问题清单";
+  openBtn.classList.toggle("bad", c.bad > 0);
+
+  DATA.forEach((st, si) => {
+    let d = 0;
+    st.items.forEach(it => { if ((store.state[it.id]||0) !== 0) d++; });
+    const el = document.querySelector('[data-cnt="'+si+'"]');
+    if (el) el.textContent = d + "/" + st.items.length;
+  });
+}
+
+/* ---------- 交互 ---------- */
+function setState(id, v){
+  if (v === 0) delete store.state[id]; else store.state[id] = v;
+  save();
+  const el = document.querySelector('.item[data-id="'+id+'"]');
+  if (el){
+    el.classList.toggle("done", v === 1);
+    el.classList.toggle("bad", v === 2);
+    const act = el.querySelector(".act");
+    if (act) act.textContent = v === 2 ? "已标记异常 · 点此撤销" : "标记异常";
+  }
+  refresh();
+}
+
+$("#stages").addEventListener("click", e => {
+  const jump = e.target.closest("[data-jump]");
+  if (jump) return;
+  const act = e.target.closest(".act");
+  const item = e.target.closest(".item");
+  if (!item) return;
+  const id = item.dataset.id;
+  if (act){
+    e.stopPropagation();
+    setState(id, store.state[id] === 2 ? 1 : 2);
+    return;
+  }
+  if (e.target.tagName === "TEXTAREA") return;
+  if (e.target.closest(".note")) return;
+  setState(id, store.state[id] === 1 ? 0 : 1);
+});
+
+$("#stages").addEventListener("input", e => {
+  if (e.target.tagName !== "TEXTAREA") return;
+  const item = e.target.closest(".item");
+  const v = e.target.value.trim();
+  if (v) store.notes[item.dataset.id] = e.target.value; else delete store.notes[item.dataset.id];
+  save();
+});
+
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-jump]");
+  if (!b) return;
+  const el = document.querySelector('.item[data-id="'+b.dataset.jump+'"]');
+  if (!el) return;
+  const kd = document.querySelector("details.known");
+  if (kd) kd.open = false;
+  el.scrollIntoView({block:"center"});
+  if (el.animate) el.animate([{boxShadow:"0 0 0 0 rgba(255,106,31,.5)"},{boxShadow:"0 0 0 9px rgba(255,106,31,0)"}],{duration:1200});
+});
+
+/* ---------- 筛选 + 搜索 ---------- */
+let filter = "all";
+function apply(){
+  const q = $("#q").value.trim().toLowerCase();
+  let shown = 0;
+  DATA.forEach((st, si) => {
+    let vis = 0;
+    st.items.forEach(it => {
+      const el = document.querySelector('.item[data-id="'+it.id+'"]');
+      const s = store.state[it.id] || 0;
+      let ok = true;
+      if (filter === "todo") ok = s === 0;
+      else if (filter === "bad") ok = s === 2;
+      else if (filter === "p0") ok = it.lv === 0;
+      else if (filter === "known") ok = !!it.k;
+      if (ok && q){
+        ok = (it.t + it.how + it.risk + it.stage.n).toLowerCase().includes(q);
+      }
+      el.classList.toggle("hide", !ok);
+      if (ok) vis++;
+    });
+    document.getElementById("stage-"+si).classList.toggle("hide", vis === 0);
+    shown += vis;
+  });
+  $("#empty").classList.toggle("hide", shown !== 0);
+}
+
+$("#chips").addEventListener("click", e => {
+  const b = e.target.closest(".chip");
+  if (!b) return;
+  filter = b.dataset.f;
+  document.querySelectorAll(".chip").forEach(c => c.classList.toggle("on", c === b));
+  apply();
+});
+$("#q").addEventListener("input", apply);
+
+/* ---------- 问题清单 ---------- */
+function buildText(){
+  const bad = ALL.filter(it => store.state[it.id] === 2);
+  const vin = ($("#vin").value || "").trim();
+  const lines = [];
+  lines.push("小米澎程 N90 Max 交付验车问题清单");
+  lines.push("日期：2026-11-29（周日）　VIN 后 6 位：" + (vin || "__________"));
+  lines.push("共 " + bad.length + " 项异常，均已于交付当天向交付顾问确认：");
+  lines.push("");
+  if (!bad.length){
+    lines.push("（暂无异常项。把清单先留着，发现问题随时勾。）");
+  } else {
+    let last = -1, n = 0;
+    bad.forEach(it => {
+      if (it.stage.idx !== last){
+        last = it.stage.idx;
+        lines.push("【" + (last+1) + ". " + it.stage.n + "】");
+      }
+      n++;
+      lines.push(n + ". " + it.t);
+      const note = (store.notes[it.id] || "").trim();
+      lines.push("   现象：" + (note || "（未填写，见现场照片）"));
+      lines.push("   诉求：当场处理 / 书面确认处理方案与时限");
+    });
+  }
+  lines.push("");
+  lines.push("以上问题请于交付单逐条注明，双方签字确认；未处理完成前保留追责权利。");
+  return lines.join("\n");
+}
+
+function openSheet(){
+  $("#out").value = buildText();
+  $("#modal").classList.add("on");
+  document.body.style.overflow = "hidden";
+}
+function closeSheet(){
+  $("#modal").classList.remove("on");
+  document.body.style.overflow = "";
+}
+$("#openSheet").addEventListener("click", openSheet);
+$("#closeSheet").addEventListener("click", closeSheet);
+$("#modal").addEventListener("click", e => { if (e.target.id === "modal") closeSheet(); });
+
+$("#vin").addEventListener("input", e => {
+  store.vin = e.target.value;
+  save();
+  $("#out").value = buildText();
+});
+
+function toast(msg){
+  const t = $("#toast");
+  t.textContent = msg;
+  t.classList.add("on");
+  clearTimeout(t._h);
+  t._h = setTimeout(()=>t.classList.remove("on"), 1600);
+}
+
+$("#copyBtn").addEventListener("click", async () => {
+  const text = $("#out").value;
+  try {
+    await navigator.clipboard.writeText(text);
+    toast("已复制，去粘给交付顾问");
+  } catch(e){
+    const ta = $("#out");
+    ta.removeAttribute("readonly");
+    ta.select();
+    ta.setSelectionRange(0, text.length);
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch(err){}
+    ta.setAttribute("readonly","");
+    toast(ok ? "已复制" : "请长按文本框手动复制");
+  }
+});
+
+$("#resetBtn").addEventListener("click", () => {
+  if (!confirm("确定清空所有勾选和备注？清空后无法恢复。")) return;
+  store = { state:{}, notes:{}, vin:"" };
+  save();
+  render();
+  $("#vin").value = "";
+  window.scrollTo({top:0});
+  toast("已清空");
+});
+
+/* ---------- 倒计时 ---------- */
+(function(){
+  const target = new Date("2026-11-29T09:00:00+08:00").getTime();
+  const now = Date.now();
+  const days = Math.ceil((target - now) / 86400000);
+  const b = $("#daysLeft");
+  if (days > 0){
+    b.textContent = days;
+    $("#leftNote").textContent = "建议 9:00 到店";
+  } else if (days === 0){
+    b.textContent = "今天";
+    $("#leftNote").textContent = "验车顺利";
+  } else {
+    b.textContent = "已过";
+    $("#leftNote").textContent = "补验 / 复查";
+  }
+})();
+
+/* ---------- 启动 ---------- */
+render();
+$("#vin").value = store.vin || "";
+</script>
+</body>
+</html>
